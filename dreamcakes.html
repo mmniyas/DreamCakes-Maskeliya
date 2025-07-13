@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Dream Cakes Maskeliya - Custom & Ready-Made Cakes</title>
+  
+    <!--Dream Cakes icon logo-->
+    <!--<link rel="icon" href="imagelogos/logo22.png" type="image/x-icon" sizes="32x32" /> -->
+
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts (Inter for body, Pacifico for headings) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Swiper.js CSS for Slideshow -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    
+    <style>
+      /* Custom styles for typography and theme */
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #fffdf9; /* Slightly warmer, more premium off-white */
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FEEAEE' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+
+      .font-heading {
+        font-family: "Pacifico", cursive;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-primary {
+        background-image: linear-gradient(
+          to right,
+          #d63384 0%,
+          #fd6585 51%,
+          #d63384 100%
+        );
+        transition: 0.5s;
+        background-size: 200% auto;
+      }
+      .btn-primary:hover {
+        background-position: right center;
+      }
+
+      .swiper-container {
+        width: 100%;
+        height: 100%;
+      }
+      .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-size: cover;
+        background-position: center;
+      }
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: #ffffff !important;
+        --swiper-navigation-size: 30px;
+      }
+      .swiper-pagination-bullet-active {
+        background: #d63384 !important;
+      }
+
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      .animate-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .glass-header {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+    </style>
+  </head>
+  <body class="text-gray-800">
+    <!-- Header & Navigation -->
+    <header class="glass-header shadow-md sticky top-0 z-50">
+      <nav
+        class="container mx-auto px-6 py-3 flex justify-between items-center"
+      >
+      <a href="#" class="flex items-center">
+        <img src="imagelogos/dreamlogo.png" alt="Dream Cakes Logo" class="h-10 w-10 object-contain" />
+        <span class="font-heading text-3xl text-pink-500 ml-2">Dream Cakes</span>
+      </a>
+      
+        <div class="hidden md:flex space-x-8 items-center">
+          <a
+            href="#gallery"
+            class="text-gray-600 hover:text-pink-500 font-medium transition duration-300"
+            >Orders</a
+          >
+          <a
+            href="#about"
+            class="text-gray-600 hover:text-pink-500 font-medium transition duration-300"
+            >About Us</a
+          >
+          <a
+            href="#testimonials"
+            class="text-gray-600 hover:text-pink-500 font-medium transition duration-300"
+            >Reviews</a
+          >
+          <a
+            href="#contact"
+            class="text-gray-600 hover:text-pink-500 font-medium transition duration-300"
+            >Contact</a
+          >
+          <a
+            href="tel:+94765329306"
+            class="btn-primary text-white px-5 py-2 rounded-full shadow-lg flex items-center space-x-2"
+          >
+            <i class="fas fa-phone"></i>
+            <span>Click to Call</span>
+          </a>
+        </div>
+        <div class="md:hidden">
+          <button
+            id="mobile-menu-button"
+            class="text-gray-600 focus:outline-none"
+          >
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </nav>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+        <a href="#gallery" class="block py-2 text-gray-600 hover:text-pink-500"
+          >Orders</a
+        >
+        <a href="#about" class="block py-2 text-gray-600 hover:text-pink-500"
+          >About Us</a
+        >
+        <a
+          href="#testimonials"
+          class="block py-2 text-gray-600 hover:text-pink-500"
+          >Reviews</a
+        >
+        <a href="#contact" class="block py-2 text-gray-600 hover:text-pink-500"
+          >Contact</a
+        >
+        <a
+          href="tel:+94765329306"
+          class="mt-2 inline-block btn-primary text-white px-4 py-2 rounded-full shadow-lg"
+        >
+          Call Us
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section Slideshow -->
+      <section class="relative h-[55vh] md:h-[70vh]">
+        <div class="swiper-container hero-slideshow h-full w-full">
+          <div class="swiper-wrapper">
+            <!-- Slide 1 -->
+            <div
+              class="swiper-slide bg-cover bg-center"
+              style="background-image: url('images/tablecake03.png')"
+            ></div>
+            <!-- Slide 2 -->
+            <div
+              class="swiper-slide bg-cover bg-center"
+              style="background-image: url('images/fruitcake1.png')"
+            ></div>
+            <!-- Slide 3 -->
+            <div
+              class="swiper-slide bg-cover bg-center"
+              style="background-image: url('images/hardred02.png')"
+            ></div>
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+          <!-- Add Navigation -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </section>
+
+      <!-- Cake Design Gallery Section -->
+      <section id="gallery" class="py-24 bg-white/70">
+        <div class="container mx-auto px-6 animate-on-scroll">
+          <div class="text-center mb-16">
+            <h2 class="font-heading text-4xl md:text-5xl text-pink-500 mb-4">
+              Our Cake Designs
+            </h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+              Browse our gallery of cakes. See a design you love? Click "Order
+              This Design" to start a WhatsApp chat with us!
+            </p>
+          </div>
+
+          <!-- Grid for All Designs -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Grid Item 1: Kids' Cakes -->
+            <div
+              class="bg-white rounded-xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-all duration-300"
+            >
+              <img
+                src="images/image07.png"
+                alt="Kids Cake"
+                class="w-full h-64 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">
+                  Kids' Cakes
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Fun themes and characters to delight the little ones.
+                </p>
+                <button
+                  onclick="orderOnWhatsApp('Kids Cake')"
+                  class="w-full btn-primary text-white font-bold py-2 px-4 rounded-full"
+                >
+                  Order This Design
+                </button>
+              </div>
+            </div>
+            <!-- Grid Item 2: Cupcakes -->
+            <div
+              class="bg-white rounded-xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-all duration-300"
+            >
+              <img
+                src="images/image06.png"
+                alt="Cupcakes"
+                class="w-full h-64 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">
+                  Cupcakes & Treats
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Perfectly portioned bites of happiness for any event.
+                </p>
+                <button
+                  onclick="orderOnWhatsApp('Cupcakes')"
+                  class="w-full btn-primary text-white font-bold py-2 px-4 rounded-full"
+                >
+                  Order This Design
+                </button>
+              </div>
+            </div>
+            <!-- Grid Item 3: Specialty Cakes -->
+            <div
+              class="bg-white rounded-xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-all duration-300"
+            >
+              <img
+                src="images/image03.png"
+                alt="Specialty Cakes"
+                class="w-full h-64 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">
+                  Specialty Cakes
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Unique creations for holidays and corporate events.
+                </p>
+                <button
+                  onclick="orderOnWhatsApp('Specialty Cake')"
+                  class="w-full btn-primary text-white font-bold py-2 px-4 rounded-full"
+                >
+                  Order This Design
+                </button>
+              </div>
+            </div>
+            <!-- Grid Item 4: Chocolate Cakes -->
+            <div
+              class="bg-white rounded-xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-all duration-300"
+            >
+              <img
+                src="images/image10.png"
+                alt="Chocolate Cakes"
+                class="w-full h-64 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">
+                  Chocolate Cakes
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Rich and decadent cakes for all the chocolate lovers.
+                </p>
+                <button
+                  onclick="orderOnWhatsApp('Chocolate Cake')"
+                  class="w-full btn-primary text-white font-bold py-2 px-4 rounded-full"
+                >
+                  Order This Design
+                </button>
+              </div>
+            </div>
+            <!-- Grid Item 5: Fruit Cakes -->
+            <div
+              class="bg-white rounded-xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-all duration-300"
+            >
+              <img
+                src="images/image11.png"
+                alt="Fruit Cakes"
+                class="w-full h-64 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">
+                  Fruit Cakes
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Fresh, light, and bursting with natural flavors.
+                </p>
+                <button
+                  onclick="orderOnWhatsApp('Fruit Cake')"
+                  class="w-full btn-primary text-white font-bold py-2 px-4 rounded-full"
+                >
+                  Order This Design
+                </button>
+              </div>
+            </div>
+            <!-- Grid Item 6: Custom Request -->
+            <div
+              class="bg-white rounded-xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-all duration-300"
+            >
+              <img
+                src="images/image13.png"
+                alt="Custom Design Cake"
+                class="w-full h-64 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">
+                  Custom Designs
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Have a unique idea? We can bring your vision to life!
+                </p>
+                <a
+                  href="#custom-order"
+                  class="w-full block text-center bg-gray-700 text-white font-bold py-2 px-4 rounded-full transition-transform duration-300 group-hover:scale-105"
+                >
+                  Request a Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Us Section -->
+      <section id="about" class="py-24">
+        <div class="container mx-auto px-6">
+          <div
+            class="flex flex-col md:flex-row items-center gap-12 animate-on-scroll"
+          >
+            <div class="md:w-1/2">
+              <img
+                src="imagelogos/dreamlogo.png"
+                alt="About Dream Cake"
+                class="rounded-lg shadow-2xl w-full"
+              />
+            </div>
+            <div class="md:w-1/2">
+              <h2 class="font-heading text-4xl md:text-5xl text-pink-500 mb-4">
+                Our Story
+              </h2>
+              <p class="text-gray-600 mb-4 leading-relaxed text-lg">
+                Our story began in September 2012, born from a heartfelt passion
+                to create the most delicious and beautiful cakes that add joy to
+                your special moments. Every cake is crafted by Fathima Shihana
+                Niyas with love, using the finest ingredients and a sprinkle of
+                homemade magic.
+              </p>
+              <p class="text-gray-600 leading-relaxed">
+                From humble beginnings in our own kitchen, we’ve grown into a
+                beloved bakery in Maskeliya—celebrated for our unique designs,
+                unforgettable flavors, and trusted quality. Today, we proudly
+                serve not only local customers but also families abroad who
+                place orders for their loved ones here in Sri Lanka. Because we
+                believe every celebration deserves a dream cake—and we’re here
+                to make yours perfect.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Customer Testimonials -->
+      <section id="testimonials" class="py-24 bg-white/70">
+        <div class="container mx-auto px-6 animate-on-scroll">
+          <h2
+            class="font-heading text-4xl md:text-5xl text-center text-pink-500 mb-12"
+          >
+            Words From Our Customers
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Testimonial 1 -->
+            <div
+              class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-pink-300"
+            >
+              <i class="fas fa-quote-left text-pink-200 text-4xl mb-4"></i>
+              <p class="text-gray-700 mb-6">
+                The wedding cake was an absolute masterpiece! It looked stunning
+                and tasted even better. Thank you, Dream Cakes, for making our
+                day so sweet.
+              </p>
+              <div class="font-bold text-gray-800">- Niyas M.M.</div>
+            </div>
+            <!-- Testimonial 2 -->
+            <div
+              class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-pink-300 transform md:scale-105"
+            >
+              <i class="fas fa-quote-left text-pink-200 text-4xl mb-4"></i>
+              <p class="text-gray-700 mb-6">
+                I ordered a custom superhero cake for my son's birthday, and it
+                exceeded all expectations. The details were incredible! He was
+                so happy.
+              </p>
+              <div class="font-bold text-gray-800">- Sameera K.</div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div
+              class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-pink-300"
+            >
+              <i class="fas fa-quote-left text-pink-200 text-4xl mb-4"></i>
+              <p class="text-gray-700 mb-6">
+                Best cakes in Maskeliya, hands down. Always fresh, always
+                delicious, and the service is so friendly. Highly recommended!
+              </p>
+              <div class="font-bold text-gray-800">- Nimali F.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Customer Photos Section -->
+      <section id="customer-photos" class="py-24">
+        <div class="container mx-auto px-6 animate-on-scroll">
+          <h2
+            class="font-heading text-4xl md:text-5xl text-center text-pink-500 mb-12"
+          >
+            Our Cakes at Your Parties!
+          </h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="grid gap-4">
+              <div>
+                <img
+                  class="h-auto max-w-full rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+                  src="niyascut.jpeg"
+                  alt="Cake Cutting Celebration"
+                />
+              </div>
+              <div>
+                <img
+                  class="h-auto max-w-full rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+                  src=""
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="grid gap-4">
+              <div>
+                <img
+                  class="h-auto max-w-full rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+                  src="abudlla.jpeg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <img
+                  class="h-auto max-w-full rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+                  src="niyastea.jpeg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="grid gap-4">
+              <div>
+                <img
+                  class="h-auto max-w-full rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+                  src="https://placehold.co/500x500/FFC0CB/C71585?text=Celebration+5"
+                  alt=""
+                />
+              </div>
+              <div>
+                <img
+                  class="h-auto max-w-full rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+                  src="https://placehold.co/500x800/F0E68C/BDB76B?text=Celebration+6"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="grid gap-4">
+              <div>
+                <img
+                  class="h-auto max-w-full rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+                  src="https://placehold.co/500x800/87CEFA/1E90FF?text=Celebration+7"
+                  alt=""
+                />
+              </div>
+              <div>
+                <img
+                  class="h-auto max-w-full rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+                  src="https://placehold.co/500x500/FFA07A/E9967A?text=Celebration+8"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Custom Order & Contact Section -->
+      <section id="contact" class="py-24 bg-white/70">
+        <div class="container mx-auto px-6 animate-on-scroll">
+          <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
+            <!-- Custom Order Form -->
+            <div
+              id="custom-order"
+              class="lg:w-1/2 bg-white p-8 rounded-xl shadow-2xl"
+            >
+              <h2 class="font-heading text-3xl text-pink-500 mb-6">
+                Request a Custom Cake
+              </h2>
+              <form
+                id="cakeOrderForm"
+                onsubmit="sendToWhatsApp(); return false;"
+              >
+                <div class="mb-5">
+                  <label for="name" class="block text-gray-700 font-bold mb-2"
+                    >Your Name</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 transition-all"
+                    required
+                  />
+                </div>
+                <div class="mb-5">
+                  <label for="date" class="block text-gray-700 font-bold mb-2"
+                    >Date Needed</label
+                  >
+                  <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 transition-all"
+                    required
+                  />
+                </div>
+                <div class="mb-5">
+                  <label
+                    for="cake-type"
+                    class="block text-gray-700 font-bold mb-2"
+                    >Type of Cake</label
+                  >
+                  <input
+                    type="text"
+                    id="cake-type"
+                    name="cake-type"
+                    placeholder="e.g., Chocolate Fudge, Ribbon Cake"
+                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 transition-all"
+                    required
+                  />
+                </div>
+                <div class="mb-5">
+                  <label
+                    for="message"
+                    class="block text-gray-700 font-bold mb-2"
+                    >Message / Design Idea</label
+                  >
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 transition-all"
+                    required
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="w-full btn-primary text-white font-bold py-3 px-4 rounded-full hover:scale-105 transition-transform duration-300"
+                >
+                  Send Request
+                </button>
+              </form>
+            </div>
+
+            <!-- Contact Info & Map -->
+            <div class="lg:w-1/2">
+              <h2 class="font-heading text-3xl text-pink-500 mb-6">
+                Find & Contact Us
+              </h2>
+              <div class="space-y-4 text-lg text-gray-700">
+                <p>
+                  <i class="fas fa-map-marker-alt text-pink-500 w-6"></i>
+                  <strong>Location:</strong> No-57, Upcot Road, Maskeliya, Sri
+                  Lanka
+                </p>
+                <p>
+                  <i class="fas fa-phone text-pink-500 w-6"></i>
+                  <strong>Call Us:</strong>
+                  <a href="tel:+94765329306" class="hover:underline"
+                    >+94 765 329 306
+                  </a>
+                </p>
+                <p>
+                  <i class="fab fa-whatsapp text-pink-500 w-6"></i>
+                  <strong>WhatsApp:</strong>
+                  <a
+                    href="https://wa.me/94765329306"
+                    target="_blank"
+                    class="hover:underline"
+                    >+94 765329306</a
+                  >
+                </p>
+                <p>
+                  <i class="fas fa-envelope text-pink-500 w-6"></i>
+                  <strong>Email:</strong>
+                  <a
+                    href="mailto:orders@dreamcakesmaskeliya.com"
+                    class="hover:underline"
+                    >orders@dreamcakesmaskeliya.com</a
+                  >
+                </p>
+              </div>
+
+              <div class="mt-8 bg-white p-6 rounded-xl shadow-lg">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                  Business Hours
+                </h3>
+                <ul class="text-gray-700 space-y-2">
+                  <li><strong>Monday - Saturday:</strong> 8:00 AM - 6:00 PM</li>
+                  <li><strong>Sunday:</strong> 9:00 AM - 6:00 PM</li>
+                </ul>
+              </div>
+
+              <div class="mt-8 rounded-lg shadow-xl overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d250.49400075983354!2d80.57068957524606!3d6.83285711767076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae39a7411ddd139%3A0xbfe3a16963d7f451!2sDream%20cakes!5e1!3m2!1sen!2slk!4v1752255805989!5m2!1sen!2slk"
+                  width="100%"
+                  height="300"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                >
+              </iframe>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+      <div class="container mx-auto px-6 text-center">
+        <p class="font-heading text-3xl text-pink-400 mb-2">
+          Dream Cakes Maskeliya
+        </p>
+        <p class="text-gray-400">
+          &copy; <span id="year"></span> Dream Cakes Maskeliya. All Rights
+          Reserved. Created by
+          <a
+            href="https://thulisoft.com"
+            target="_blank"
+            class="text-pink-500 font-semibold hover:underline"
+            >Thulisoft</a
+          >
+        </p>
+        <div class="mt-6 flex justify-center space-x-6">
+          <a
+            href="https://www.facebook.com/dreamcakesmaskeliya"
+            target="_blank"
+            class="text-gray-400 hover:text-pink-400 transition duration-300"
+            ><i class="fab fa-facebook-f text-2xl"></i
+          ></a>
+          <a
+            href="#"
+            class="text-gray-400 hover:text-pink-400 transition duration-300"
+            ><i class="fab fa-instagram text-2xl"></i
+          ></a>
+          <a
+            href="https://wa.me/94765329306"
+            target="_blank"
+            class="text-gray-400 hover:text-pink-400 transition duration-300"
+            ><i class="fab fa-whatsapp text-2xl"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a
+      href="https://wa.me/94765329306?text=Hello%20Dream%20Cake!%20I'd%20like%20to%20inquire%20about%20a%20cake."
+      target="_blank"
+      class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transform hover:scale-110 transition-transform duration-300 z-40"
+    >
+      <i class="fab fa-whatsapp text-4xl"></i>
+    </a>
+
+    <!-- Swiper.js for Slideshow -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Set current year in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // WhatsApp order function
+      function orderOnWhatsApp(cakeType) {
+        const phoneNumber = "94765329306"; // Replace with your actual WhatsApp number
+        const message = `Hello Dream Cakes! I'm interested in ordering a ${cakeType}. Could you please provide more details?`;
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+          message
+        )}`;
+        window.open(whatsappUrl, "_blank");
+      }
+
+      // Initialize Hero Slideshow
+      const heroSwiper = new Swiper(".hero-slideshow", {
+        loop: true,
+        effect: "fade", // Smooth fade effect
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".hero-slideshow .swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".hero-slideshow .swiper-button-next",
+          prevEl: ".hero-slideshow .swiper-button-prev",
+        },
+      });
+
+      // Scroll Animation Logic
+      const animatedElements = document.querySelectorAll(".animate-on-scroll");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+        }
+      );
+      animatedElements.forEach((el) => observer.observe(el));
+
+      // customer Request section
+      function sendToWhatsApp() {
+        const name = document.getElementById("name").value;
+        const date = document.getElementById("date").value;
+        const cakeType = document.getElementById("cake-type").value;
+        const message = document.getElementById("message").value;
+
+        const whatsappNumber = "94765329306"; // ✅ Your number here (without + or 0)
+        const text = `*🎂 New Custom Cake Request*%0A%0A👤 Name: ${name}%0A📅 Date Needed: ${date}%0A🍰 Cake Type: ${cakeType}%0A📝 Message: ${message}`;
+
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${text}`;
+        window.open(whatsappURL, "_blank");
+        // ✅ Clear form after send
+        document.getElementById("cakeOrderForm").reset();
+      }
+    </script>
+  </body>
+</html>
